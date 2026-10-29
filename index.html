@@ -64,6 +64,7 @@
       width: 100%;
       max-width: 440px;
       height: auto;
+      transition: transform 1.5s ease-in-out;
       animation: appear 1.8s ease-out;
     }
 
@@ -84,6 +85,23 @@
       color: #687260;
       margin-top: 15px;
       font-style: italic;
+    }
+
+    #waterButton {
+      margin-top: 25px;
+      padding: 14px 32px;
+      background: #465c45;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #waterButton:hover {
+      background: #2d402e;
     }
 
     @media (max-width: 600px) {
@@ -133,7 +151,26 @@
       Every great design begins with growth.
     </p>
 
+    <button id="waterButton" onclick="waterTree()">
+      💧 Water the Tree
+    </button>
+
   </main>
+
+  <script>
+    let growthLevel = 0;
+
+    function waterTree() {
+      const tree = document.querySelector(".olive-tree");
+
+      if (growthLevel < 3) {
+        growthLevel++;
+
+        tree.style.transform =
+          `scale(${1 + growthLevel * 0.08})`;
+      }
+    }
+  </script>
 
 </body>
 </html>
